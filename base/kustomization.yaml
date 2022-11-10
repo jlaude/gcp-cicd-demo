@@ -1,0 +1,7 @@
+resources:
+  - hello.deployment.yaml
+  - hello.service.yaml
+
+images:
+- name: java-hello-world
+  newTag: HELLO_WORLD_COMMIT_SHA

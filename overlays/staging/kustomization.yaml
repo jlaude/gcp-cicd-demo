@@ -1,0 +1,6 @@
+bases:
+- ../../base
+commonLabels:
+  env: staging
+patches:
+- replica_count.yaml
