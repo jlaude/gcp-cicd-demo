@@ -17,13 +17,13 @@ build:
 
 # defines the Kubernetes manifests to deploy on each run
 profiles:
-  - name: staging
-    deploy:
-      kustomize:
-        paths:
-          - overlays/staging
- - name: production
-   deploy:
-     kustomize:
-       paths:
-         - overlays/production
+- name: staging
+  deploy:
+    kustomize:
+      paths:
+        - overlays/staging
+- name: production
+  deploy:
+    kustomize:
+      paths:
+        - overlays/production
