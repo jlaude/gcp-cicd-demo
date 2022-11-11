@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: server
-        image: java-hello-world
+        image: us-central1-docker.pkg.dev/dev-demo-project-366116/jlaude-labs-repo/java-hello-world
         ports:
         - containerPort: 8080
         env:
