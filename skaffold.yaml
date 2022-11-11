@@ -5,7 +5,7 @@ kind: Config
 build:
   googleCloudBuild: 
     projectId: dev-demo-project-366116
-    workerPool: cicd-gke-private-pool-us-central1
+    workerPool: projects/dev-demo-project-366116/locations/us-central1/workerPools/cicd-gke-private-pool-us-central1
   tagPolicy:
     gitCommit: {}
   # defines where to find the code at build time and where to push the resulting image
