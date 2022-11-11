@@ -1,0 +1,8 @@
+apiVersion: deploy.cloud.google.com/v1
+kind: Target
+metadata:
+ name: prod
+description: Production GKE Cluster
+requireApproval: true
+gke:
+ cluster: projects/jlaude-labs-prod/locations/us-central1/clusters/jlaude-labs-prod-gke-cluster

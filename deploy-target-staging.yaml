@@ -1,0 +1,8 @@
+apiVersion: deploy.cloud.google.com/v1
+kind: Target
+metadata:
+ name: staging
+description: Staging GKE Cluster
+requireApproval: true
+gke:
+ cluster: projects/jlaude-labs-staging/locations/us-central1/clusters/jlaude-labs-staging-gke-cluster

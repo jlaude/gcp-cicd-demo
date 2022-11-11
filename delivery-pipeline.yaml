@@ -1,0 +1,14 @@
+apiVersion: deploy.cloud.google.com/v1
+kind: DeliveryPipeline
+metadata:
+ name: hello-world-delivery-pipeline
+description: Hello World Java App Delivery Pipeline
+suspended: false
+serialPipeline:
+ stages:
+ - targetId: staging
+   profiles:
+     - staging
+ - targetId: prod
+   profiles:
+     - production
