@@ -15,3 +15,6 @@ steps:
       "--annotations", "commitId=${REVISION_ID}",
       "--build-artifacts", "/workspace/artifacts.json"
     ]
+options:
+  pool:
+    name: 'projects/dev-demo-project-366116/locations/us-central1/workerPools/cicd-gke-private-pool-us-central1'
