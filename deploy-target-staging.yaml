@@ -3,6 +3,6 @@ kind: Target
 metadata:
  name: staging
 description: Staging GKE Cluster
-requireApproval: true
+requireApproval: false
 gke:
  cluster: projects/jlaude-labs-staging/locations/us-central1/clusters/jlaude-labs-staging-gke-cluster
