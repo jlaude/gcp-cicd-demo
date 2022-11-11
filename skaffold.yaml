@@ -7,7 +7,7 @@ build:
     projectId: dev-demo-project-366116
     workerPool: projects/dev-demo-project-366116/locations/us-central1/workerPools/cicd-gke-private-pool-us-central1
   tagPolicy:
-    gitCommit: {}
+    inputDigest: {}
   # defines where to find the code at build time and where to push the resulting image
   artifacts:
     - image: us-central1-docker.pkg.dev/dev-demo-project-366116/jlaude-labs-repo/java-hello-world
