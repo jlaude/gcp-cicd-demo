@@ -6,7 +6,7 @@ description: Staging GKE Cluster
 requireApproval: false
 gke:
  cluster: projects/jlaude-labs-staging/locations/us-central1/clusters/jlaude-labs-staging-gke-cluster
- internalIp: true
+   # internalIp: true
 executionConfigs:
 - usages:
   - RENDER
