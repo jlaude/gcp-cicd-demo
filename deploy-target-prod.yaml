@@ -11,3 +11,4 @@ executionConfigs:
   - RENDER
   - DEPLOY
   workerPool: projects/dev-demo-project-366116/locations/us-central1/workerPools/cicd-gke-private-pool-us-central1
+  serviceAccount: cloud-deploy-prod-sa@dev-demo-project-366116.iam.gserviceaccount.com
