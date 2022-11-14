@@ -6,3 +6,8 @@ description: Staging GKE Cluster
 requireApproval: false
 gke:
  cluster: projects/jlaude-labs-staging/locations/us-central1/clusters/jlaude-labs-staging-gke-cluster
+executionConfigs:
+- usages:
+  - RENDER
+  - DEPLOY
+  workerPool: projects/dev-demo-project-366116/locations/us-central1/workerPools/cicd-gke-private-pool-us-central1

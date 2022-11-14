@@ -6,3 +6,8 @@ description: Production GKE Cluster
 requireApproval: true
 gke:
  cluster: projects/jlaude-labs-prod/locations/us-central1/clusters/jlaude-labs-prod-gke-cluster
+executionConfigs:
+- usages:
+  - RENDER
+  - DEPLOY
+  workerPool: projects/dev-demo-project-366116/locations/us-central1/workerPools/cicd-gke-private-pool-us-central1
