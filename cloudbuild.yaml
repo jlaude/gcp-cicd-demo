@@ -5,7 +5,7 @@ steps:
     - build
     - '--interactive=false'
     - '--file-output=/workspace/artifacts.json'
-    - '--remote-cache-dir=./skaffold/repos'
+    - '--remote-cache-dir=/workspace/.skaffold/repos'
     - '--sync-remote-cache=always'
 - name: gcr.io/google.com/cloudsdktool/cloud-sdk
   entrypoint: gcloud
