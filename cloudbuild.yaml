@@ -9,6 +9,7 @@ steps:
     - '--sync-remote-cache=always'
     - '--cache-file=/workspace/.skaffold/cache'
     - '--config=/workspace/.skaffold/config'
+    - '--verbosity=debug'
 - name: gcr.io/google.com/cloudsdktool/cloud-sdk
   entrypoint: gcloud
   args:
