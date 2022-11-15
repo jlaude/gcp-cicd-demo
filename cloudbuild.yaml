@@ -5,7 +5,8 @@ steps:
     - build
     - '--interactive=false'
     - '--file-output=/workspace/artifacts.json'
-    - '--remote-cache-dir=us-central1-docker.pkg.dev/dev-demo-project-366116/jlaude-labs-repo'
+    - '--remote-cache-dir=./skaffold/repos'
+    - '--sync-remote-cache=always'
 - name: gcr.io/google.com/cloudsdktool/cloud-sdk
   entrypoint: gcloud
   args:
