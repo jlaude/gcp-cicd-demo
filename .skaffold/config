@@ -1,0 +1,8 @@
+global:
+  default-repo: us-central1-docker.pkg.dev/dev-demo-project-366116/jlaude-labs-repo
+  survey:
+    last-prompted: "2022-11-10T21:13:12Z"
+  collect-metrics: true
+  update:
+    last-prompted: "2022-11-11T20:29:41Z"
+kubeContexts: []
