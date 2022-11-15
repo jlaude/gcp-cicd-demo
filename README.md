@@ -29,4 +29,3 @@
 3. To stop the application, click the stop icon next to the configuration dropdown.
 
 ---
-# gcp-cicd-demo
