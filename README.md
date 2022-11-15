@@ -7,10 +7,10 @@
 The CI/CD pipeline uses GitOps to trigger a build when a change is pushed to the main branch. Cloud Build will be triggered to build the Hello World application OCI Image via Skaffold build then create a release for this build in Cloud Deploy. The release will automatically deploy the release to the staging GKE cluster.
 
 ### Table of Contents
-* [What's in this sample](#whats-in-this-sample)
+* [What's in this demo](#whats-in-this-demo)
 
 ---
-## What's in this sample
+## What's in this demo
 ### Kubernetes architecture
 ![Kubernetes Architecture Diagram](./img/diagram.png)
 
