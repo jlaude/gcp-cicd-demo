@@ -3,9 +3,8 @@
 apiVersion: skaffold/v2beta28
 kind: Config
 build:
-  googleCloudBuild: 
-    projectId: dev-demo-project-366116
-    workerPool: projects/dev-demo-project-366116/locations/us-central1/workerPools/cicd-gke-private-pool-us-central1
+  local:
+    tryImportMissing: true
   tagPolicy:
     inputDigest: {}
   # defines where to find the code at build time and where to push the resulting image
