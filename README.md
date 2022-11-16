@@ -13,7 +13,7 @@ The Cloud Build trigger and Cloud Deploy pipeline build/deploy from a centralize
 
 ---
 ## What's in this demo
-### Kubernetes architecture
+### Kubernetes Architecture
 ![Kubernetes Architecture Diagram](./img/diagram.png)
 
 ### Directory contents
