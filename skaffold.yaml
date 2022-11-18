@@ -28,3 +28,8 @@ profiles:
     kustomize:
       paths:
         - overlays/production
+- name: dev
+  deploy:
+    kustomize:
+      paths:
+        - overlays/dev

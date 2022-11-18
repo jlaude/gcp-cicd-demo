@@ -6,6 +6,9 @@ description: Hello World Java App Delivery Pipeline
 suspended: false
 serialPipeline:
  stages:
+ - targetId: dev
+   profiles:
+     - dev
  - targetId: staging
    profiles:
      - staging
