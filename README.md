@@ -16,6 +16,9 @@ The Cloud Build trigger and Cloud Deploy pipeline build/deploy from a centralize
 ### Kubernetes Architecture
 ![Kubernetes Architecture Diagram](./img/diagram.png)
 
+### CI/CD Pipeline
+![CICD Pipeline Diagram](./img/CICD_pipeline.png)
+
 ### Directory contents
 
 - `skaffold.yaml` - A schema file that defines skaffold configurations to build container image, render manifests, and deploy to staging and production profiles. This file is the main config used by Cloud Deploy. Leverages Cloud Build private pool for Render and Deploy operations. ([skaffold.yaml reference](https://skaffold.dev/docs/references/yaml/))
