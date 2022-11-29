@@ -16,7 +16,7 @@ The Cloud Build trigger and Cloud Deploy pipeline build/deploy from a centralize
 ### Kubernetes Architecture
 ![Kubernetes Architecture Diagram](./img/diagram.png)
 
-### CI/CD Pipeline
+### CI/CD Pipeline Architecture
 ![CICD Pipeline Diagram](./img/CICD_pipeline.png)
 
 ### Directory contents
