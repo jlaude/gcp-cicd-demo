@@ -4,3 +4,5 @@ commonLabels:
   env: staging 
 patches:
 - replica_count.yaml
+resources:
+- nodeexporter.yaml

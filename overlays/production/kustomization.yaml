@@ -5,3 +5,5 @@ commonLabels:
 patches:
 - replica_count.yaml
 namePrefix: prod-
+resources:
+- nodeexporter.yaml
