@@ -1,6 +1,9 @@
 
 package cloudcode.helloworld.web;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +22,18 @@ public final class HelloWorldController {
     public String helloWorld(Model model) {
         String message = "It's running!";
         model.addAttribute("message", message);
+
+        InetAddress ip;
+        
+        String hostname;
+        try {
+            ip = InetAddress.getLocalHost();
+            hostname = ip.getHostName();
+            model.addAttribute("hostname", hostname);
+
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
         return "index";
     }
 }
