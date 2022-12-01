@@ -1,6 +1,6 @@
 # End to End GCP CI/CD Pipeline: from Local Development in Cloud Code/Minikube to Running App in Production GKE Cluster
 
-The CI/CD pipeline uses GCP best practices for development of a microservices based application using the following services:
+This codebase represents an end to end GCP CI/CD pipeline for development and deployment of a microservices based application using the following services:
 * Cloud Code and minikube - for local development and testing
 * Skaffold - for building image(s), rendering kubernetes manifests, and deploying manifests
 * Cloud Build - for building remote images and creating Cloud Deploy Releases
