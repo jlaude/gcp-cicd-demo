@@ -20,7 +20,7 @@ public final class HelloWorldController {
      */
     @GetMapping("/")
     public String helloWorld(Model model) {
-        String message = "It's running!";
+        String message = "It's Running!";
         model.addAttribute("message", message);
 
         InetAddress ip;
