@@ -1,4 +1,4 @@
-package cloudcode.helloworld;
+package com.argolis.jlaude;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,15 +10,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * Here, we check to ensure all required environment variables are set
  */
 @SpringBootApplication
-public class HelloWorldApplication {
+public class WebApplication {
 
-    private static final Logger logger = LoggerFactory.getLogger(HelloWorldApplication.class);
+    private static final Logger logger = LoggerFactory.getLogger(WebApplication.class);
 
     public static void main(final String[] args) throws Exception {
         String port = System.getenv("PORT");
         if (port == null) {
             logger.warn("$PORT environment variable not set");
         }
-        SpringApplication.run(HelloWorldApplication.class, args);
+        SpringApplication.run(WebApplication.class, args);
     }
 }

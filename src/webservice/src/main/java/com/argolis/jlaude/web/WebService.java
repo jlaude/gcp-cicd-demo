@@ -1,20 +1,14 @@
-
-package cloudcode.helloworld.web;
+package com.argolis.jlaude.web;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 
-
-/**
- * Defines a controller to handle HTTP requests.
- */
-@Controller
-public final class HelloWorldController {
+@Service
+public class WebService {
 
     @Value("${PROJECT_ID}")
     private String project_id;
@@ -22,14 +16,7 @@ public final class HelloWorldController {
     @Value("${ENVIRONMENT}")
     private String environment;
 
-
-    /**
-     * Create an endpoint for the landing page
-     * @return the index view template with a simple message
-     */
-    @GetMapping("/")
-    public String helloWorld(Model model) {
-
+    public String getHomepage(Model model) {
 
         //String message = "It's Running!";
         String message = "Project ID: "+ project_id + "; Environment: " + environment;
