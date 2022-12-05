@@ -19,6 +19,10 @@ public final class HelloWorldController {
     @Value("${PROJECT_ID}")
     private String project_id;
 
+    @Value("${ENVIRONMENT}")
+    private String environment;
+
+
     /**
      * Create an endpoint for the landing page
      * @return the index view template with a simple message
@@ -28,7 +32,7 @@ public final class HelloWorldController {
 
 
         //String message = "It's Running!";
-        String message = project_id;
+        String message = "Project ID: "+ project_id + "; Environment: " + environment;
         model.addAttribute("message", message);
 
         InetAddress ip;
