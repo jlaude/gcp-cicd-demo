@@ -4,7 +4,6 @@ commonLabels:
   env: prod
 patches:
 - path: replica_count.yaml
-namePrefix: prod-
 resources:
 - nodeexporter.yaml
 configMapGenerator:
