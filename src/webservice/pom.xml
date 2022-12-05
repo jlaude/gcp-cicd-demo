@@ -3,10 +3,10 @@
 		xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>hello-world</artifactId>
+  <artifactId>web-app</artifactId>
   <packaging>jar</packaging>
-  <name>Cloud Code Hello World</name>
-  <description>Getting started with Cloud Code</description>
+  <name>JLaude Web App</name>
+  <description>Web Application Using Spring Boot</description>
   <version>1.0.0</version>
 
   <parent>
