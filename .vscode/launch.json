@@ -1,6 +1,13 @@
 {
     "configurations": [
         {
+            "type": "java",
+            "name": "Launch ApiApplication",
+            "request": "launch",
+            "mainClass": "com.argolis.jlaude.api.ApiApplication",
+            "projectName": "api"
+        },
+        {
             "name": "Kubernetes: Run/Debug - dev",
             "type": "cloudcode.kubernetes",
             "request": "launch",
@@ -8,7 +15,7 @@
             "profile": "dev",
             "watch": true,
             "cleanUp": true,
-            "portForward": true,
+            "portForward": true
         }
     ]
 }

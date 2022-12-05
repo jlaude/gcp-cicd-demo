@@ -3,6 +3,10 @@ bases:
 commonLabels:
   env: staging 
 patches:
-- replica_count.yaml
+- path: replica_count.yaml
 resources:
 - nodeexporter.yaml
+configMapGenerator:
+  - name: config-properties
+    files:
+    - application.properties

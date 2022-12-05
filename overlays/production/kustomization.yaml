@@ -3,7 +3,11 @@ bases:
 commonLabels:
   env: prod
 patches:
-- replica_count.yaml
+- path: replica_count.yaml
 namePrefix: prod-
 resources:
 - nodeexporter.yaml
+configMapGenerator:
+  - name: config-properties
+    files:
+    - config.properties

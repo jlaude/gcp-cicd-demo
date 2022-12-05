@@ -28,3 +28,14 @@ spec:
           tcpSocket:
             port: 8080
           initialDelaySeconds: 5
+        volumeMounts:
+          - mountPath: /config
+            name: config-properties
+            readOnly: true
+      volumes:
+        - name: config-properties
+          configMap:
+            name: config-properties
+            items:
+            - key: application.properties
+              path: application.properties

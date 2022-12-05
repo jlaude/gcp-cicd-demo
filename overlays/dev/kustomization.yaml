@@ -3,4 +3,8 @@ bases:
 commonLabels:
   env: dev 
 patches:
-- replica_count.yaml
+  - path: replica_count.yaml
+configMapGenerator:
+  - name: config-properties
+    files:
+    - application.properties
