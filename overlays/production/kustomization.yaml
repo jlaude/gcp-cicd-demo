@@ -10,4 +10,4 @@ resources:
 configMapGenerator:
   - name: config-properties
     files:
-    - config.properties
+    - application.properties
