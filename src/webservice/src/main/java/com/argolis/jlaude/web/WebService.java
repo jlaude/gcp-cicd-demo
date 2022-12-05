@@ -1,15 +1,36 @@
 package com.argolis.jlaude.web;
 
-import java.net.InetAddress;
-import java.net.UnknownHostException;
-
-import org.springframework.beans.factory.annotation.Value;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+import org.springframework.web.client.RestTemplate;
+
+import org.slf4j.Logger;
 
 @Service
 public class WebService {
 
+    private static final Logger logger = LoggerFactory.getLogger(WebService.class);
+
+
+    public String getHomepage(Model model) {
+
+        String appUri = "http://java-app-tier-svc.default.svc.cluster.local:80/env";
+        RestTemplate restTemplate = new RestTemplate();
+
+        EnvDAO env = restTemplate.getForObject(appUri, EnvDAO.class);
+        logger.info(env.toString());
+
+        String message = "Project ID: "+ env.getProject_id() + "; Environment: " + env.getEnvironment_tier();
+        model.addAttribute("message", message);
+        model.addAttribute("hostname", env.getHostname());
+
+        return "index";
+
+    }
+
+
+    /* 
     @Value("${PROJECT_ID}")
     private String project_id;
 
@@ -34,5 +55,5 @@ public class WebService {
             e.printStackTrace();
         }
         return "index";
-    }
+    } */
 }

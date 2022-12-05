@@ -1,5 +1,18 @@
 {
     "configurations": [
+
+        {
+            "type": "java",
+            "name": "Launch AppTierApplication",
+            "request": "launch",
+            "mainClass": "com.argolis.jlaude.AppTierApplication",
+            "projectName": "applicationtier",
+            "skaffoldConfig": "${workspaceFolder}/skaffold.yaml",
+            "profile": "dev",
+            "watch": true,
+            "cleanUp": true,
+            "portForward": true
+        },
         {
             "type": "java",
             "name": "Launch ApiApplication",

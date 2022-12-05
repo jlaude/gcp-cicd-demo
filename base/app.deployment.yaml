@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: java-app-tier
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: java-app-tier
+  template:
+    metadata:
+      labels:
+        app: java-app-tier
+    spec:
+      containers:
+      - name: server
+        image: us-central1-docker.pkg.dev/dev-demo-project-366116/jlaude-labs-repo/java-app-tier
+        ports:
+        - containerPort: 8080
+        env:
+        - name: PORT
+          value: "8080"
+        # This environment variable enables debugging support for the container.
+        # Remove this to disable the debug build.
+        - name: JAVA_TOOL_OPTIONS
+          value: -agentlib:jdwp=transport=dt_socket,server=y,address=5005,suspend=n,quiet=y
+        readinessProbe:
+          tcpSocket:
+            port: 8080
+          initialDelaySeconds: 5
+        volumeMounts:
+          - mountPath: /config
+            name: config-properties
+            readOnly: true
+      volumes:
+        - name: config-properties
+          configMap:
+            name: config-properties
+            items:
+            - key: application.properties
+              path: application.properties
