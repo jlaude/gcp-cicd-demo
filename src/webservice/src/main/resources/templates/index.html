@@ -180,7 +180,8 @@
 
 			<div class="message">
 				<h1 th:text="${message}" />
-				<h2 th:text="'Pod Hostname: ' + ${hostname}" />
+				<h2 th:text="'Web Tier Pod Hostname: ' + ${webTierHostname}" />
+				<h2 th:text="'App Tier Pod Hostname: ' + ${hostname}" />
 			</div>
 		</div>
 

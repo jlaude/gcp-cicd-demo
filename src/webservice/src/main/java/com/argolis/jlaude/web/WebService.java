@@ -5,6 +5,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.client.RestTemplate;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
 import org.slf4j.Logger;
 
 @Service
@@ -23,6 +26,19 @@ public class WebService {
 
         String message = "Project ID: "+ env.getProject_id() + "; Environment: " + env.getEnvironment_tier();
         model.addAttribute("message", message);
+        model.addAttribute("hostname", env.getHostname());
+
+        InetAddress ip;
+        
+        String webTierHostname;
+        try {
+            ip = InetAddress.getLocalHost();
+            webTierHostname = ip.getHostName();
+            model.addAttribute("webTierHostname", webTierHostname);
+
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
 
         return "index";
 
@@ -30,29 +46,9 @@ public class WebService {
 
 
     /* 
-    @Value("${PROJECT_ID}")
-    private String project_id;
 
-    @Value("${ENVIRONMENT}")
-    private String environment;
 
-    public String getHomepage(Model model) {
 
-        //String message = "It's Running!";
-        String message = "Project ID: "+ project_id + "; Environment: " + environment;
-        model.addAttribute("message", message);
-
-        InetAddress ip;
-        
-        String hostname;
-        try {
-            ip = InetAddress.getLocalHost();
-            hostname = ip.getHostName();
-            model.addAttribute("hostname", hostname);
-
-        } catch (UnknownHostException e) {
-            e.printStackTrace();
-        }
         return "index";
     } */
 }
