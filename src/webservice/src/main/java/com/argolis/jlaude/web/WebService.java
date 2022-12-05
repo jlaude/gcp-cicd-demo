@@ -23,7 +23,6 @@ public class WebService {
 
         String message = "Project ID: "+ env.getProject_id() + "; Environment: " + env.getEnvironment_tier();
         model.addAttribute("message", message);
-        model.addAttribute("hostname", env.getHostname());
 
         return "index";
 

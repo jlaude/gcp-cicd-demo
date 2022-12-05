@@ -1,7 +1,5 @@
 package com.argolis.jlaude.app;
 
-import java.net.InetAddress;
-import java.net.UnknownHostException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,23 +17,10 @@ public class AppService {
 
     public Map<String, String> getEnvDetails() {
 
-
-        InetAddress ip;
-        
-        String hostname = "";
-        try {
-            ip = InetAddress.getLocalHost();
-            hostname = ip.getHostName();
-
-        } catch (UnknownHostException e) {
-            e.printStackTrace();
-        }
-
         HashMap<String, String> map = new HashMap<>();
 
         map.put("project_id", project_id);
         map.put("environment_tier", environment);
-        map.put("hostname", hostname);
 
         return map;
     }
