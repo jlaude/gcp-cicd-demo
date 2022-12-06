@@ -1,6 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: java-web-app
+  name: java-app-tier
 spec:
-  replicas: 3
+  replicas: 1

@@ -3,10 +3,7 @@ package com.argolis.jlaude.web;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
-import org.springframework.web.client.RestTemplate;
 import org.springframework.web.reactive.function.client.WebClient;
-import org.springframework.web.reactive.function.client.WebClient.RequestBodySpec;
-import org.springframework.web.reactive.function.client.WebClient.UriSpec;
 
 import reactor.core.publisher.Mono;
 
