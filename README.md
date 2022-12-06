@@ -29,7 +29,8 @@ This demo assumes you have alreade set up the required CI/CD, Dev, Staging, and 
 - `./cloud-deploy-configs/deploy-target-prod.yaml` - prod GKE cluster target definition file used by Cloud Deploy.
 - `./cloud-deploy-configs/delivery-pipeline.yaml` - Cloud Deploy pipeline definition file. Defines which Skaffold profiles are used to deploy to which Cloud Deploy Target and in which sequenial order should targets be deployed to.
 - `./cloudbuild.yaml` - Cloud Build Configuration file which defines execution steps for building OCI image for Hello World application using Skaffold and creating Cloud Deploy Release using the build artifacts rendered from build (manifest.yaml containing image reference in Artifact Registry).
-- `./src/helloworldservice` - source code for application and build configs
+- `./src/webservice` - source code for web tier service
+- `./src/applicaitontier` - source code for application tier service
 - `./base` - kustomize base manifest files
 - `./overlays` - kustomize overlays for environments
 
