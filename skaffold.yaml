@@ -6,7 +6,7 @@ build:
   local:
     tryImportMissing: true
   tagPolicy:
-    gitCommit: {}
+    inputDigest: {}
   # defines where to find the code at build time and where to push the resulting image
   artifacts:
     - image: us-central1-docker.pkg.dev/dev-demo-project-366116/jlaude-labs-repo/java-web-app
