@@ -4,7 +4,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.client.RestTemplate;
-//import org.springframework.web.reactive.function.client.WebClient;
+import org.springframework.web.reactive.function.client.WebClient;
+import org.springframework.web.reactive.function.client.WebClient.RequestBodySpec;
+import org.springframework.web.reactive.function.client.WebClient.UriSpec;
+
+import reactor.core.publisher.Mono;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
@@ -20,20 +24,18 @@ public class WebService {
     public String getHomepage(Model model) {
 
         String appUri = "http://java-app-tier-svc.default.svc.cluster.local:80/env";
-        RestTemplate restTemplate = new RestTemplate();
 
-        //WebClient client = WebClient.create(appUri);
-        //UriSpec<EnvDTO> uriSpec = client.get();
+        WebClient client = WebClient.builder().baseUrl(appUri).build();
+        Mono<EnvDTO> env = client.get().retrieve().bodyToMono(EnvDTO.class);
+        EnvDTO envResult = env.block();
 
-        EnvDTO env = restTemplate.getForObject(appUri, EnvDTO.class);
-        logger.info(env.toString());
-
-        String message = "Project ID: "+ env.getProject_id() + "; Environment: " + env.getEnvironment_tier();
+        logger.info(envResult.toString());
+        
+        String message = "Project ID: "+ envResult.getProject_id() + "; Environment: " + envResult.getEnvironment_tier();
         model.addAttribute("message", message);
-        model.addAttribute("hostname", env.getHostname());
+        model.addAttribute("hostname", envResult.getHostname());
 
         InetAddress ip;
-        
         String webTierHostname;
         try {
             ip = InetAddress.getLocalHost();
@@ -48,11 +50,4 @@ public class WebService {
 
     }
 
-
-    /* 
-
-
-
-        return "index";
-    } */
 }
