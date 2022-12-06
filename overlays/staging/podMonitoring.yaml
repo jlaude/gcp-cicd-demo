@@ -9,4 +9,4 @@ spec:
   endpoints:
   - port: 8080
     interval: 10s
-    path: /actuator/prometheus
+    path: "/actuator/prometheus"
