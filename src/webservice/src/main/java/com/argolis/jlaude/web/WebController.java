@@ -27,7 +27,7 @@ public final class WebController {
      * @return the index view template with a simple message
      */
     @GetMapping("/")
-    public String helloWorld(Model model) {
+    public String homePage(Model model) {
 
         return webService.getHomepage(model);
 

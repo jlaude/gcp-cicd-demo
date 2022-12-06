@@ -21,7 +21,7 @@ public class WebService {
         String appUri = "http://java-app-tier-svc.default.svc.cluster.local:80/env";
         RestTemplate restTemplate = new RestTemplate();
 
-        EnvDAO env = restTemplate.getForObject(appUri, EnvDAO.class);
+        EnvDTO env = restTemplate.getForObject(appUri, EnvDTO.class);
         logger.info(env.toString());
 
         String message = "Project ID: "+ env.getProject_id() + "; Environment: " + env.getEnvironment_tier();
