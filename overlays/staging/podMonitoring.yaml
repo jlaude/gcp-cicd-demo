@@ -7,5 +7,6 @@ spec:
     matchLabels:
       app: java-web-app
   endpoints:
-  - port: actuator/prometheus
+  - port: http
     interval: 10s
+    path: actuator/prometheus
