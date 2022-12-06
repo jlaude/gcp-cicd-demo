@@ -16,7 +16,7 @@ steps:
       "deploy", "releases", "create", "rel-${SHORT_SHA}",
       "--delivery-pipeline", "hello-world-delivery-pipeline",
       "--region", "us-central1",
-      "--annotations", "commitId=${REVISION_ID}",
+      "--annotations", "commitId=${REVISION_ID}, githubCommit=${_HEAD_REPO_URL}",
       "--build-artifacts", "/workspace/artifacts.json"
     ]
 options:
