@@ -6,6 +6,7 @@ patches:
 - path: replica_count.yaml
 resources:
 - nodeexporter.yaml
+- podMonitoring.yaml
 configMapGenerator:
   - name: config-properties
     files:
