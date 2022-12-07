@@ -29,7 +29,7 @@ public final class WebController {
      * @return the index view template with a simple message
      */
     @GetMapping("/")
-    @Timed (value = "homepage.get.time", description = "Time taken to return homepage.get")
+    @Timed (value = "homepage.get.time", description = "Time taken to return homepage.get", percentiles = {0.5,0.9,0.95,0.99})
     public String homePage(Model model) {
 
         return webService.getHomepage(model);
