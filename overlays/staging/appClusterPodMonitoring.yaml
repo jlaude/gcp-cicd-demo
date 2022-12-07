@@ -1,12 +1,12 @@
 apiVersion: monitoring.googleapis.com/v1
 kind: ClusterPodMonitoring
 metadata:
-  name: prom-web-tier
+  name: prom-app-tier
 spec:
   selector:
     matchLabels:
-      app: java-web-app
+      app: java-app-tier
   endpoints:
-  - port: 8080
+  - port: metrics
     interval: 10s
     path: "/actuator/prometheus"

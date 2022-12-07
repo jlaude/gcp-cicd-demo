@@ -17,6 +17,8 @@ spec:
         image: us-central1-docker.pkg.dev/dev-demo-project-366116/jlaude-labs-repo/java-web-app
         ports:
         - containerPort: 8080
+        - name: metrics
+          containerPort: 8081
         env:
         - name: PORT
           value: "8080"

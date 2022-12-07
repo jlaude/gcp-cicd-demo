@@ -8,6 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.micrometer.core.annotation.Timed;
+
 /**
  * Defines a controller to handle HTTP requests.
  */
@@ -28,7 +30,9 @@ public final class AppController {
      * @return the index view template with a simple message
      */
     @GetMapping("/env")
-    public Map<String, String> helloWorld(Model model) {
+    @Timed (value = "env.get.api.time", description = "Time taken to return env.get.api", percentiles = {0.5,0.9,0.95,0.99})
+
+    public Map<String, String> envRestApi(Model model) {
 
         return appService.getEnvDetails();
 
