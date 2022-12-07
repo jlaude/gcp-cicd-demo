@@ -9,16 +9,15 @@ build:
     inputDigest: {}
   # defines where to find the code at build time and where to push the resulting image
   artifacts:
-    - image: us-central1-docker.pkg.dev/dev-demo-project-366116/jlaude-labs-repo/java-web-app
-      context: src/webservice
+    - image: us-central1-docker.pkg.dev/dev-demo-project-366116/jlaude-labs-repo/java-app-tier
+      context: src/applicationtier
       # To learn more about how Jib builds Java containers visit
       # https://github.com/GoogleContainerTools/jib
       jib:
         args:
         - -Dmaven.test.skip=true
-
-    - image: us-central1-docker.pkg.dev/dev-demo-project-366116/jlaude-labs-repo/java-app-tier
-      context: src/applicationtier
+    - image: us-central1-docker.pkg.dev/dev-demo-project-366116/jlaude-labs-repo/java-web-app
+      context: src/webservice
       # To learn more about how Jib builds Java containers visit
       # https://github.com/GoogleContainerTools/jib
       jib:
