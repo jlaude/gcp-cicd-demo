@@ -34,6 +34,8 @@ spec:
           - mountPath: /config
             name: config-properties
             readOnly: true
+      serviceAccountName: java-web-app
+
       volumes:
         - name: config-properties
           configMap:
