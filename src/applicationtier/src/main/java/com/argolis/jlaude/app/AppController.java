@@ -1,4 +1,3 @@
-
 package com.argolis.jlaude.app;
 
 import java.util.Map;
@@ -17,7 +16,6 @@ import io.micrometer.core.annotation.Timed;
 public final class AppController {
 
     private final AppService appService;
-
     
     @Autowired
     public AppController(AppService appService) {

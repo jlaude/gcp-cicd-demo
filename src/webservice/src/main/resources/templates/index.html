@@ -28,13 +28,13 @@
  }
 
  h2 {
-	font-size: 18px;
+	font-size: 10px;
 	font-weight: normal;
 	margin-top: 4px;
  }
 
  h3 {
-	font-size: 20px;
+	font-size: 8px;
 	margin-bottom: 0px;
  }
 
@@ -51,7 +51,7 @@
 }
 
  .hero {
-	margin-top: 172px;
+	margin-top: 50px;
  }
 
  .hero .logo {
@@ -61,9 +61,18 @@
  }
 
  .hero .message {
-	font-size: 15px;
+	font-size: 12px;
 	text-align: center;
-	margin-bottom: 24px;
+	margin-bottom: 10px;
+ }
+
+ .hero .subway {
+	font-size: 13px;
+	text-align: center;
+	margin-bottom: 10px;
+	margin-left: auto;
+	margin-right: auto;
+
  }
 
  .details {
@@ -147,7 +156,7 @@
 
 	.hero {
 	  margin-top: 0;
-	  margin-bottom: 24px;
+	  margin-bottom: 10px;
 	}
   }
   @media (prefers-color-scheme: dark) {
@@ -178,19 +187,21 @@
 				</picture>
 			</div>
 
-			<div class="message">
-				<h1 th:text="${message}" />
-				<h2 th:text="'Web Tier K8s Pod Hostname: ' + ${webTierHostname}" />
-				<h2 th:text="'App Tier K8s Pod Hostname: ' + ${hostname}" />
-			</div>
-		</div>
+			<table class = "subway">
+				<tr style="font-size:20px;">
+					<th>Subway Arrival Times</th>
+				</tr>
+				<tr th:each="arrivalTime : ${subwayTimesList}">
+					<td th:text="${arrivalTime}"></td>
+				</tr>
+			</table>
 
-		<div class="details">
-			<p class="cta">
-				<a href="https://github.com/jlaude/gcp-cicd-demo" target="_blank" rel="noopener">
-					GITHUB REPO
-				</a>
-			</p>
+			<div class="message">
+				<h2 th:text="${message}" />
+				<h3 th:text="'Web Tier K8s Pod Hostname: ' + ${webTierHostname}" />
+				<h3 th:text="'App Tier K8s Pod Hostname: ' + ${hostname}" />
+			</div>
+
 		</div>
 	</div>
 </body>

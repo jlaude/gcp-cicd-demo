@@ -9,6 +9,7 @@ import reactor.core.publisher.Mono;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.util.List;
 
 import org.slf4j.Logger;
 
@@ -42,6 +43,16 @@ public class WebService {
         } catch (UnknownHostException e) {
             e.printStackTrace();
         }
+
+
+        // Retrieving L Train Arrival times at Bedfor Ave
+        String subwayUri = "http://java-app-tier-svc.default.svc.cluster.local:80/subway";
+
+        WebClient subwayClient = WebClient.builder().baseUrl(subwayUri).build();
+        Mono<String[]> subwayTimesListMono = subwayClient.get().retrieve().bodyToMono(String[].class);
+        String[] subwayTimesList = subwayTimesListMono.block();
+
+        model.addAttribute("subwayTimesList", subwayTimesList);
 
         return "index";
 

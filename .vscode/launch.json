@@ -1,6 +1,41 @@
 {
     "configurations": [
-
+        {
+            "name": "Cloud Run: Run/Debug Locally App Tier ",
+            "type": "cloudcode.cloudrun",
+            "request": "launch",
+            "build": {
+                "jibMaven": {
+                    "path": "src/applicationtier/pom.xml",
+                    "project": "org.springframework.boot:app-tier"
+                }
+            },
+            "image": "java-app-tier",
+            "service": {
+                "name": "java-app-tier",
+                "containerPort": 8080,
+                "env": [
+                    {
+                        "name": "ENVIRONMENT=dev",
+                        "value": ""
+                    },
+                    {
+                        "name": "PROJECT_ID=jlaude-labs-dev",
+                        "value": ""
+                    }
+                ],
+                "resources": {
+                    "limits": {
+                        "memory": "256Mi"
+                    }
+                }
+            },
+            "target": {
+                "minikube": {}
+            },
+            "watch": true,
+            "externalPortForward": 80
+        },
         {
             "name": "Kubernetes: Run/Debug - dev",
             "type": "cloudcode.kubernetes",
