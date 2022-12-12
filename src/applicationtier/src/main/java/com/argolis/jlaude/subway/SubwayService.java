@@ -10,6 +10,9 @@ import java.net.http.HttpResponse.BodySubscribers;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.TimeZone;
 
 import org.slf4j.Logger;
@@ -24,15 +27,19 @@ public class SubwayService {
 
     private static final Logger logger = LoggerFactory.getLogger(SubwayService.class);
 
-    @Value("${PROJECT_ID}")
+    @Value("${GCP_PROJECT_ID}")
     private String project_id;
 
 
-    public ArrayList<String> getSubwayDetails() throws IOException, InterruptedException {
+    public Map<String, List<String>> getSubwayDetails() throws IOException, InterruptedException {
+
+    //public ArrayList<String> getSubwayDetails() throws IOException, InterruptedException {
 
         final String apiKey = AccessSecretVersion.accessSecretVersion(project_id, "mta-subway-api-key", "1");
 
-        ArrayList<String> arrivalTimesList = new ArrayList<>();
+        List<String> arrivalTimesList = new ArrayList<>();
+        List<String> delayedMinutesList = new ArrayList<>();
+        Map<String, List<String>> trainTimes = new HashMap<>();
         HttpClient httpClient = HttpClient.newHttpClient();
 
         // Create an HTTP request with the Protocol Buffers message as the body
@@ -89,6 +96,8 @@ public class SubwayService {
         
                                     Integer delayMinutes = arrivalEvent.getDelay() / 60;
                                     logger.info("Delayed : " + delayMinutes.toString() + " minutes");
+
+                                    delayedMinutesList.add(delayMinutes.toString());
                                 }
                             }
                         }
@@ -97,8 +106,17 @@ public class SubwayService {
             }
         }
 
-        return arrivalTimesList;
+        trainTimes.put("arrival_times", arrivalTimesList);
+        trainTimes.put("delayed_minutes", delayedMinutesList);
 
+        logger.info(arrivalTimesList.toString());
+        logger.info(delayedMinutesList.toString());
+
+        logger.info(trainTimes.toString());
+
+        return trainTimes;
+
+        //return arrivalTimesList;
     }
     
 }

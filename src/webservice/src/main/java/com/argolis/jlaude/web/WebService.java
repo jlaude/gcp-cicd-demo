@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.reactive.function.client.WebClient;
 
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.net.InetAddress;
@@ -48,11 +49,17 @@ public class WebService {
         // Retrieving L Train Arrival times at Bedfor Ave
         String subwayUri = "http://java-app-tier-svc.default.svc.cluster.local:80/subway";
 
-        WebClient subwayClient = WebClient.builder().baseUrl(subwayUri).build();
-        Mono<String[]> subwayTimesListMono = subwayClient.get().retrieve().bodyToMono(String[].class);
-        String[] subwayTimesList = subwayTimesListMono.block();
 
-        model.addAttribute("subwayTimesList", subwayTimesList);
+        WebClient subwayClient = WebClient.builder().baseUrl(subwayUri).build();
+        Flux<SubwayDTO> subwayTimesListFlux = subwayClient.get().retrieve().bodyToFlux(SubwayDTO.class);
+        SubwayDTO subwayTimesList = subwayTimesListFlux.blockFirst();
+
+
+        logger.info(subwayTimesList.toString());
+
+        model.addAttribute("subwayTimesList", subwayTimesList.getArrival_times());
+        model.addAttribute("subwayDelayedTimes", subwayTimesList.getDelayed_minutes());
+
 
         return "index";
 

@@ -2,7 +2,8 @@
 package com.argolis.jlaude.subway;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -27,7 +28,8 @@ public final class SubwayController {
 
     @GetMapping("/subway")
     @Timed (value = "subway.get.api.time", description = "Time taken to return subway.get.api", percentiles = {0.5,0.9,0.95,0.99})
-    public ArrayList<String> subwayRestApi(Model model) throws IOException, InterruptedException {
+    //public ArrayList<String> subwayRestApi(Model model) throws IOException, InterruptedException {
+    public Map<String, List<String>> subwayRestApi(Model model) throws IOException, InterruptedException {    
 
        return subwayService.getSubwayDetails();
 

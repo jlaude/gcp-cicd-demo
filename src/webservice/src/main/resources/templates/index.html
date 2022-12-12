@@ -188,11 +188,13 @@
 			</div>
 
 			<table class = "subway">
-				<tr style="font-size:20px;">
+				<tr style="font-size:14px;">
 					<th>Subway Arrival Times</th>
+					<th>Minutes Delayed</th>
 				</tr>
-				<tr th:each="arrivalTime : ${subwayTimesList}">
-					<td th:text="${arrivalTime}"></td>
+				<tr th:each="index : ${#numbers.sequence( 0, #arrays.length(subwayTimesList) - 1)}">
+					<td th:text="${subwayTimesList[index]}">Arrival Times</td>
+					<td th:text="${subwayDelayedTimes[index]}">Minutes Delayed</td>
 				</tr>
 			</table>
 
