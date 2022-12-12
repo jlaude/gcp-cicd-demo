@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import io.micrometer.core.annotation.Timed;
 
@@ -32,7 +33,15 @@ public final class WebController {
     @Timed (value = "homepage.get.time", description = "Time taken to return homepage.get", percentiles = {0.5,0.9,0.95,0.99})
     public String homePage(Model model) {
 
-        return webService.getHomepage(model);
+        return "index";
+
+    }
+
+    @GetMapping("/ltrain")
+    @Timed (value = "ltrain.get.time", description = "Time taken to return ltrain.get", percentiles = {0.5,0.9,0.95,0.99})
+    public String lTrainPage(Model model) {
+
+        return webService.getLTrainPage(model);
 
     }
 
