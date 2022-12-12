@@ -14,7 +14,7 @@
  body {
 	font-family: 'Roboto', sans-serif;
   font-display: fallback;
-	background: url('img/cloud_bg.svg');
+	/* background: url('img/cloud_bg.svg'); */
 	background-size: cover;
 	background-position: center;
 	background-attachment: fixed;
@@ -159,9 +159,19 @@
 	  margin-bottom: 10px;
 	}
   }
+  .dark {
+	background: black url('img/dark_bg.svg');
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	line-height: 1.6;
+	font-family: 'Roboto', sans-serif;
+	color:white;
+  }
+
   @media (prefers-color-scheme: dark) {
     body {
-        background: black url('img/dark_bg.svg');
+        background: black; /* url('img/dark_bg.svg'); */
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
@@ -180,12 +190,14 @@
 <body>
 	<div class="container">
 		<div class="hero">
-			<div style="text-align:center;">
+<!--   			<div style="text-align:center;">
 				<picture>
 					<source srcset="img/KE-hello-world-dark.svg" media="(prefers-color-scheme: dark)">
 					<img th:src="@{img/KE-hello-world.svg}" alt="A group celebrating" width="427" height="231">
 				</picture>
-			</div>
+			</div> -->
+
+			<div source media="(prefers-color-scheme: dark)"></div> 
 
 			<div class="message">
 				<h1 th:text="'Manhattan Bound L Train Bedford Av Info'" />
