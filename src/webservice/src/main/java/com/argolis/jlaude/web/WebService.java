@@ -47,7 +47,7 @@ public class WebService {
             e.printStackTrace();
         }
 
-        // Retrieving L Train Arrival times at Bedfor Ave
+        // Retrieving L Train Arrival times at Bedford Ave
         String subwayUri = "http://java-app-tier-svc.default.svc.cluster.local:80/subway";
 
         try {
