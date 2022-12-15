@@ -10,7 +10,6 @@ import reactor.core.publisher.Mono;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-import java.util.List;
 
 import org.slf4j.Logger;
 
@@ -28,11 +27,14 @@ public class WebService {
         Mono<EnvDTO> env = client.get().retrieve().bodyToMono(EnvDTO.class);
         EnvDTO envResult = env.block();
 
-        logger.info(envResult.toString());
-        
-        String message = "Project ID: "+ envResult.getProject_id() + "; Environment: " + envResult.getEnvironment_tier();
-        model.addAttribute("message", message);
-        model.addAttribute("hostname", envResult.getHostname());
+        if (envResult != null) {
+            logger.info("envResult: {}",envResult);
+            
+            String message = "Project ID: "+ envResult.getProject_id() + "; Environment: " + envResult.getEnvironment_tier();
+            model.addAttribute("message", message);
+            model.addAttribute("hostname", envResult.getHostname());
+
+        }
 
         InetAddress ip;
         String webTierHostname;
@@ -45,21 +47,29 @@ public class WebService {
             e.printStackTrace();
         }
 
-
         // Retrieving L Train Arrival times at Bedfor Ave
         String subwayUri = "http://java-app-tier-svc.default.svc.cluster.local:80/subway";
 
+        try {
 
         WebClient subwayClient = WebClient.builder().baseUrl(subwayUri).build();
         Flux<SubwayDTO> subwayTimesListFlux = subwayClient.get().retrieve().bodyToFlux(SubwayDTO.class);
         SubwayDTO subwayTimesList = subwayTimesListFlux.blockFirst();
 
 
-        logger.info(subwayTimesList.toString());
+        if (subwayTimesList != null) {
+            logger.info("SubwayTimes List: {}",subwayTimesList);
 
-        model.addAttribute("subwayTimesList", subwayTimesList.getArrival_times());
-        model.addAttribute("subwayDelayedTimes", subwayTimesList.getDelayed_minutes());
+             model.addAttribute("subwayTimesList", subwayTimesList.getArrival_times());
+             model.addAttribute("subwayDelayedTimes", subwayTimesList.getDelayed_minutes());
+        }
 
+    }
+
+    catch (Exception exception) {
+        logger.info("Error retriving subway times list");
+        exception.printStackTrace();
+    }
 
         return "ltrainindex";
 
