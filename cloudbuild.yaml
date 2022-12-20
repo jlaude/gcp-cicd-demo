@@ -1,4 +1,11 @@
 steps:
+
+- name: gcr.io/cloud-builders/mvn
+  args: ['deploy', '-f', './src/webservice/pom.xml']
+
+- name: gcr.io/cloud-builders/mvn
+  args: ['deploy', '-f', './src/applicationtier/pom.xml']
+
 - name: gcr.io/k8s-skaffold/skaffold
   args:
     - skaffold
