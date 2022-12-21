@@ -21,7 +21,6 @@ public final class WebController {
         this.webService = webService;
     }
 
-
     /**
      * Create an endpoint for the landing page
      * @return the index view template with a simple message

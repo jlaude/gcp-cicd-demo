@@ -18,7 +18,6 @@ public class WebService {
 
     private static final Logger logger = LoggerFactory.getLogger(WebService.class);
 
-
     public String getLTrainPage(Model model) {
 
         String appUri = "http://java-app-tier-svc.default.svc.cluster.local:80/env";

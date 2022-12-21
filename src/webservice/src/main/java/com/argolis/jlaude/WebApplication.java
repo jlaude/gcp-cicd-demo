@@ -13,7 +13,6 @@ public class WebApplication {
 
     private static final Logger logger = LoggerFactory.getLogger(WebApplication.class);
 
-
     public static void main(final String[] args) throws Exception {
         String port = System.getenv("PORT");
         if (port == null) {
