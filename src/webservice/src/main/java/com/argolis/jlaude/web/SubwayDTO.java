@@ -12,7 +12,6 @@ public class SubwayDTO {
         this.delayed_minutes = delayed_minutes;
     }
     
-    
     public SubwayDTO() {
     }
 
@@ -33,6 +32,5 @@ public class SubwayDTO {
     public String toString() {
         return "SubwayDTO [arrival_times=" + arrival_times + ", delayed_minutes=" + delayed_minutes + "]";
     }
-     
     
 }
