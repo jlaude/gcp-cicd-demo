@@ -37,6 +37,7 @@ public final class WebController {
     @Timed (value = "ltrain.get.time", description = "Time taken to return ltrain.get", percentiles = {0.5,0.9,0.95,0.99})
     public String lTrainPage(Model model) {
 
+        
         return webService.getLTrainPage(model);
 
     }
