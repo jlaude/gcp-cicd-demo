@@ -9,6 +9,6 @@ resources:
 - webClusterPodMonitoring.yaml
 - appClusterPodMonitoring.yaml
 configMapGenerator:
-  - name: config-properties
-    files:
-    - application.properties
+- name: config-properties
+  files:
+  - application.properties
