@@ -22,7 +22,6 @@ public final class AppController {
         this.appService = appService;
     }
 
-
     /**
      * Create an endpoint for the landing page
      * @return the index view template with a simple message
