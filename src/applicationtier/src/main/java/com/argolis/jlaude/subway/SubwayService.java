@@ -35,7 +35,7 @@ public class SubwayService {
 
     //public ArrayList<String> getSubwayDetails() throws IOException, InterruptedException {
 
-        final String apiKey = AccessSecretVersion.accessSecretVersion(project_id, "mta-subway-api-key", "1");
+        final String apiKey = AccessSecretVersion.accessSecretVersion(project_id, "mta-subway-api-key", "2");
 
         List<String> arrivalTimesList = new ArrayList<>();
         List<String> delayedMinutesList = new ArrayList<>();
